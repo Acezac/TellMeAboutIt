@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="{{ STATIC_URL }}css/rateit.css" type="text/css">
+<script src="{{STATIC_URL}}jQuery/jquery.js"></script>
+<script src="{{STATIC_URL}}jQuery/test.js"></script>
+    <FORM class="cbubble clearfix pull-right form-inline" id="postComment" method="POST" data-catid="{{ comm.complaint_id }}">
+        {% csrf_token %}
+        <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+        <div class="cbubble-content" id="cbubble_post">
+            <div class="point" id="point_post"></div>
+            <div id="btn_post">
+                <button class="btn btn-small btn-primary pull-right" id="btn_submitcomment" style="bottom: -28px; position: relative" type="submit">comment</button>
+            </div>
+            <div id="text_comment">
+                <textarea id="textarea-comment" rows="2" placeholder="Write a Comment" style="bottom: -6px; position: relative; resize: none"></textarea>
+            </div>
+        </div>
+    </FORM>
+
+
+<div id="comments">
+{% if comments %}
+
+    {% for com in comments %}
+        <div id="{{com.complaint_id}}">
+            <div class="cbubble clearfix pull-right" id="a3" >
+                <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+                <div class="cbubble-content" id="a2">
+                    <div class="point"></div>
+                    <p>{{ com.content }}</p>
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}  
+    <a href="javascript:void(0)"  class="pull-right" id="seeallComments" onclick="showAllComments(this)">see all comments</a>
+{% else %}
+    <div class="cbubble clearfix pull-right">
+        <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+        <div class="cbubble-content">
+            <div class="point"></div>
+            <P>No comments at present.</P>
+        </div>
+    </div>
+{% endif %}
+
+</div>

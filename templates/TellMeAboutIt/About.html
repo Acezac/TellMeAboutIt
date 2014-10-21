@@ -1,0 +1,137 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0066)http://twitter.github.com/bootstrap/examples/starter-template.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Tell me about it</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/Style.css" type="text/css" >
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.png">
+    <script src="./Bootstrap, from Twitter_files/jquery.min.js"></script><script src="./Bootstrap, from Twitter_files/sf_main.jsp" defer></script><script type="text/javascript" src="./Bootstrap, from Twitter_files/sf_code.jsp"></script><script type="text/javascript" src="./Bootstrap, from Twitter_files/base_single_icon.js"></script><script type="text/javascript" src="./Bootstrap, from Twitter_files/dojo.xd.js"></script><script type="text/javascript" charset="utf-8" src="./Bootstrap, from Twitter_files/script.xd.js"></script><script type="text/javascript" charset="utf-8" src="./Bootstrap, from Twitter_files/window.xd.js"></script><script type="text/javascript" src="./Bootstrap, from Twitter_files/getSupportedSitesJSON.action" id="sufioIoScript1" charset="utf-8"></script><script type="text/javascript" src="./Bootstrap, from Twitter_files/getCouponsSupportedSites.action" id="sufioIoScript2" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css" >
+
+    <script src="{{STATIC_URL}}jQuery/jquery.js"></script>
+    <script src="{{STATIC_URL}}jQuery/test.js"></script>
+    <script src="{{STATIC_URL}}jQuery/jquery.rateit.js"></script>
+    <script src="{{STATIC_URL}}jQuery/jquery.rateit.min.js"></script>
+</head>
+
+
+<body>
+<!--POPUP-->
+
+<div id="blanket" ></div>
+<div id="popUpDiv" >
+    <a href="javascript:void(0)" onclick="popup('popUpDiv')" >Click to Close Pop Up</a>
+    <div class="ComplaintsBox" id="Complaints_List2" ><!-- /ComplaintsBox -->
+
+    </div>
+</div>
+<!-- / POPUP-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="http://twitter.github.com/bootstrap/examples/starter-template.html#" >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="/tellmeaboutit/index/">Home</a></li>
+                    <li><a href="/tellmeaboutit/about/">About</a></li>
+                    <li><a href="/tellmeaboutit/contactus/">Contact</a></li>
+                    {% if user.is_anonymous %}
+                        <li><a href="/tellmeaboutit/register/">Register</a></li>
+                    {% endif %}
+                </ul>
+                {% if user.is_authenticated %}
+                    <div>
+                        <div class="form-inline pull-right">
+
+                            <input type="button" class="btn btn-small" name="complete1" value="Log out"  onClick="logout()">
+                        </div>
+                        <div class="form-inline pull-right user" >{{ user }}</div>
+                    </div>
+                {% else %}
+                    <form id="login_form" method="post" class="form-inline pull-right loginfrm"   action="/tellmeaboutit/login/">
+                        {% csrf_token %}
+                        <input class="input-small" type="text" name="username" value="" placeholder="Username" id="username">
+                        <input class="input-small" type="password" name="password"  placeholder="Password" id="password">
+                        <input class="btn btn-small" type="submit" name="submit" value="Sign in" id="login">
+                    </form>
+                {% endif %}
+
+            </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+    </div><!--/.navbar-inner -->
+</div><!--/.navbar navbar-inverse navbar-fixed-top-->
+<div class="container" id="panel">
+    <div class="content">
+        <div class="page-header"><h1>Tell me about it!</h1>
+        </div>
+        <div class="row">
+
+            <div class="span6">
+                <p>
+                    <b>
+                        University of Glasgow <br />
+                        Department of Computing Science <br />
+                        Internet technologies coursework <br />
+                        <br />
+                        Group Members <br />
+                        <ul>
+                            <li>Zacharias Tricolore </li>
+                            <li>Abdullah Razzouk</li>
+                            <br />
+                        </ul>
+                    </b>
+                    <br />
+                </p>
+
+                <br />
+            </div>
+        </div>
+    </div><!-- /content -->
+</div>
+    <footer><p>This website was developed as part of Internet technologies courswork</p></footer>
+</div> <!-- /container -->
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./index/jquery.js"></script>
+<script src="./index/bootstrap-transition.js"></script>
+<script src="./index/bootstrap-alert.js"></script>
+<script src="./index/bootstrap-modal.js"></script>
+<script src="./index/bootstrap-dropdown.js"></script>
+<script src="./index/bootstrap-scrollspy.js"></script>
+<script src="./index/bootstrap-tab.js"></script>
+<script src="./index/bootstrap-tooltip.js"></script>
+<script src="./index/bootstrap-popover.js"></script>
+<script src="./index/bootstrap-button.js"></script>
+<script src="./index/bootstrap-collapse.js"></script>
+<script src="./index/bootstrap-carousel.js"></script>
+<script src="./index/bootstrap-typeahead.js"></script>
+<sfmsg id="sfMsgId" data="{&quot;imageCount&quot;:0,&quot;ip&quot;:&quot;1.1.1.1&quot;}">
+</sfmsg>
+</body>
+</html>

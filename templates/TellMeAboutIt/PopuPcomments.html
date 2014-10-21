@@ -1,0 +1,65 @@
+<script src="{{STATIC_URL}}jQuery/jquery.rateit.js"></script>
+<script src="{{STATIC_URL}}jQuery/jquery.rateit.min.js"></script>
+<link rel="stylesheet" href="{{ STATIC_URL }}css/rateit.css" type="text/css">
+
+<div class="span5" style="background-color: #f0f0ee"><!-- /above complaint list -->
+
+        </br>
+
+        {% if complaint %}
+            {% for cat in complaint %}
+
+                <div class="bubble-list" ><!-- /bubble list -->
+                    <div class="bubble clearfix" >
+                        <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+                        <div class="bubble-content">
+                            <div class="point"></div>
+                            <div id="wrapper">
+                                <div id="content">
+                                    <p class="paragraph" style="word-wrap: break-word; height: 50px">
+                                        <b>Tell me about:</b>#
+                                        {{ cat.subject }}
+                                        <textarea style="resize: none;border: none;  background-color: #ffffff; height:12px; width:350px" readonly="true"  row="1">{{ cat.description }}</textarea >
+                                        <i><b>Reasons:</b></i># {{ cat.reason }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rateit pull-right" id="rateit5" data-rateit-min="0">
+                    </div>
+                    <div id="c">
+                                    <span id="value5"></span>
+                                    <span id="hover5"></span>
+                    </div>
+
+
+
+
+
+
+                                {% for com in comments %}
+                                    <div>
+                                        <div class="cbubble clearfix pull-right" >
+                                            <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+                                            <div class="cbubble-content">
+                                                <div class="point"></div>
+                                                <p>{{ com.content }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+
+                                        </div>
+                                    </div>
+                                {% endfor %}  
+
+
+
+
+                </div><!-- /bubble list -->      
+            {% endfor %}
+        {% endif %}
+
+
+</div><!-- /above complaint list -->

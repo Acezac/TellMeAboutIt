@@ -1,0 +1,13 @@
+<table class="table table-bordered">
+<tr>
+    <td>
+        Subject
+    </td>
+    <td>Number of Comments</td>
+</tr>
+    {% for cc in comp_list %}
+        <tr>
+            <td>{{ cc.subject }}</td><td style="text-align: center">{{  cc.numberComments}}</td>
+        </tr>
+    {% endfor %}
+</table>

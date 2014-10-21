@@ -1,0 +1,47 @@
+
+<link rel="stylesheet" href="{{ STATIC_URL }}css/rateit.css" type="text/css">
+
+{% if cat_list %}
+    {% for cat in cat_list %}
+        <div class="ComplaintsBox"></div>
+        <div class="bubble-list" ><!-- /bubble list -->
+            <div class="bubble clearfix" >
+                <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+                <div class="bubble-content">
+                    <div class="point"></div>
+                    <div id="wrapper">
+                        <div id="content">
+                            <p class="paragraph" style="word-wrap: break-word; height: 50px">
+                                <b>Tell me about:</b>#
+                                {{ cat.subject }}
+                                <textarea style="border: none;  background-color: #ffffff; height:12px; width:350px; resize: none" readonly="true"  row="1">{{ cat.description }}</textarea >
+                                <i><b>Reasons:</b></i># {{ cat.reason }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="pull-right" id="{{ cat.id }}">
+                    <button type="submit" class="btn btn-mini" id="{{ cat.id }}" onclick="rating(1,this)"><i class="icon-thumbs-up" value="{{ user.id }}"></i></button>
+                    <button type="submit" class="btn btn-mini" id="{{ cat.id }}" onclick="rating(-1,this)"><i class="icon-thumbs-down" value="{{ user.id }}"></i></button>
+                </div>
+                <div id="{{ cat.id }}k" class="div_likes" style="display: none">Overall Likes :{{likes }}</div>
+            {% endif %}
+            <div class="ComplaintsBox" id="ComplaintsBox">
+                <a href="javascript:void(0)" id="seeComments" onclick="showDiv(this) "data-catid="{{Complaint_id}}">Show Comments</a>
+
+
+
+
+                <div id="{{ cat.id }}" class="MCommentBox">
+
+
+
+                </div>
+
+
+            </div>
+        </div><!-- /bubble list -->      
+    {% endfor %}
+{% endif %}

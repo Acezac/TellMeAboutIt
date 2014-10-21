@@ -1,0 +1,24 @@
+{% if comments %}
+
+    {% for com in comments %}
+        <div id="{{com.complaint_id}}">
+            <div class="cbubble clearfix pull-right" id="a3" >
+                <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+                <div class="cbubble-content" id="a2">
+                    <div class="point"></div>
+                    <p>{{ com.content }}</p>
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}  
+    <a href="javascript:void(0)"  class="pull-right" id="seeallComments" onclick="showAllComments(this)">see all comments</a>
+{% else %}
+    <div class="cbubble clearfix pull-right">
+        <img src="{{ STATIC_URL }}imgs/leifos.jpg">
+        <div class="cbubble-content">
+            <div class="point"></div>
+            <P>No comments at present.</P>
+        </div>
+    </div>
+{% endif %}
